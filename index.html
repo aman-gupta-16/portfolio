@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aman Gupta - Portfolio</title>
+    <title>Aman Gupta - Full Stack Developer</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -19,9 +19,15 @@
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#experience">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()">
+              <i class="fas fa-moon theme-toggle-icon" id="theme-icon"></i>
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -37,17 +43,15 @@
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
           <li>
             <button class="theme-toggle" onclick="toggleTheme()">
-              <img
-                src="./assets/moon.png"
-                alt="theme icon"
+              <i
+                class="fas fa-moon theme-toggle-icon"
                 id="theme-icon-mobile"
-                class="theme-toggle-icon"
-              />
+              ></i>
             </button>
           </li>
         </div>
@@ -56,17 +60,17 @@
 
     <!-- Profile Section -->
     <section id="profile">
-      <div class="section__pic-container">
+      <div class="section__pic-container animate-on-scroll">
         <img
           src="./assets/profile.jpg"
           alt="Aman Gupta profile picture"
           class="profile-pic"
         />
       </div>
-      <div class="section__text">
+      <div class="section__text animate-on-scroll">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Aman Gupta</h1>
-        <p class="section__text__p2">Full Stack Developer</p>
+        <p class="section__text__p2"></p>
         <div class="btn-container">
           <button
             class="btn btn-color-1"
@@ -101,24 +105,33 @@
       <div class="section-container">
         <div class="about-details-container">
           <div class="about-containers">
-            <div class="details-container">
-              <i class="fas fa-award icon"></i>
+            <div class="details-container animate-on-scroll">
+              <i class="fas fa-award icon skill-icon"></i>
               <h3>Experience</h3>
               <p>6+ months<br />Full Stack Development</p>
             </div>
-            <div class="details-container">
-              <i class="fas fa-graduation-cap icon"></i>
+            <div class="details-container animate-on-scroll">
+              <i class="fas fa-graduation-cap icon skill-icon"></i>
               <h3>Education</h3>
-              <p>B.E. ECE<br />Chandigarh College of Engineering</p>
+              <p>
+                B.E. Electronics & Communication<br />Chandigarh College of
+                Engineering & Technology
+              </p>
             </div>
           </div>
-          <div class="text-container">
+          <div class="text-container animate-on-scroll">
             <p>
-              I am a versatile Software Developer with expertise in full stack
-              development. Experienced in building scalable web applications
-              using modern technologies like React, Node.js, and MongoDB.
-              Passionate about creating efficient solutions and continuously
-              learning new technologies.
+              I am a versatile Software Developer pursuing a B.E. in Electronics
+              & Communication from Chandigarh College of Engineering &
+              Technology. With over six months of hands-on experience as a
+              Software Developer Intern at Equartis Technology, I have designed
+              and delivered scalable web applications, including a Dietitian
+              Management Web App and a SuperAdmin Analytics Dashboard. Skilled
+              in system architecture, API development, and collaborative
+              problem-solving, I have contributed to 5+ projects using
+              technologies like React, Node.js, and MongoDB. As a technical
+              coordinator and student leader, I thrive in dynamic environments
+              and am passionate about building innovative solutions.
             </p>
           </div>
         </div>
@@ -127,59 +140,153 @@
 
     <!-- Skills Section -->
     <section id="experience">
-      <h1 class="title experience-heading">Technical Skills</h1>
+      <h1 class="title experience-heading">My Experience</h1>
+
       <div class="experience-details-container">
-        <div class="article-container">
-          <article>
-            <i class="fab fa-react skill-icon"></i>
-            <div>
-              <h3>React.js</h3>
-              <p>Advanced</p>
+        <div class="skills-container">
+          <!-- Frontend Skills -->
+          <div class="details-container skills-card animate-on-scroll">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fab fa-html5 skill-icon"></i>
+                <h3>HTML</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fab fa-css3-alt skill-icon"></i>
+                <h3>CSS</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fab fa-js skill-icon"></i>
+                <h3>JavaScript</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fab fa-react skill-icon"></i>
+                <h3>React.js</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fas fa-code skill-icon"></i>
+                <h3>TypeScript</h3>
+                <div class="skill-level">
+                  <div class="skill-progress intermediate"></div>
+                  <span>Intermediate</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fas fa-wind skill-icon"></i>
+                <h3>Tailwind CSS</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fab fa-bootstrap skill-icon"></i>
+                <h3>Bootstrap</h3>
+                <div class="skill-level">
+                  <div class="skill-progress intermediate"></div>
+                  <span>Intermediate</span>
+                </div>
+              </div>
             </div>
-          </article>
-          <article>
-            <i class="fab fa-node skill-icon"></i>
-            <div>
-              <h3>Node.js</h3>
-              <p>Advanced</p>
+          </div>
+
+          <!-- Backend Skills -->
+          <div class="details-container skills-card animate-on-scroll">
+            <h2 class="experience-sub-title">Backend Development</h2>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fab fa-node-js skill-icon"></i>
+                <h3>Node.js</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fas fa-server skill-icon"></i>
+                <h3>Express.js</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fas fa-database skill-icon"></i>
+                <h3>MongoDB</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fas fa-database skill-icon"></i>
+                <h3>SQL</h3>
+                <div class="skill-level">
+                  <div class="skill-progress intermediate"></div>
+                  <span>Intermediate</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fab fa-git-alt skill-icon"></i>
+                <h3>Git</h3>
+                <div class="skill-level">
+                  <div class="skill-progress experienced"></div>
+                  <span>Experienced</span>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <i class="fab fa-aws skill-icon"></i>
+                <h3>AWS (EC2, S3)</h3>
+                <div class="skill-level">
+                  <div class="skill-progress intermediate"></div>
+                  <span>Intermediate</span>
+                </div>
+              </div>
             </div>
-          </article>
-          <article>
-            <i class="fas fa-database skill-icon"></i>
-            <div>
-              <h3>MongoDB</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <i class="fab fa-js skill-icon"></i>
-            <div>
-              <h3>JavaScript</h3>
-              <p>Advanced</p>
-            </div>
-          </article>
-          <article>
-            <i class="fa-brands fa-node-js"></i>
-            <div>
-              <h3>Express.js</h3>
-              <p>Advanced</p>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-      <h1 class="title projects-heading">Projects</h1>
+      <h1 class="title projects-heading">My Projects</h1>
       <div class="experience-details-container">
         <div class="about-containers">
-          <!-- Project 1 -->
-          <div class="color-container">
+          <!-- Project 1: TricityMate -->
+          <div class="color-container animate-on-scroll">
             <div class="project-card">
               <img
                 src="./assets/tricitymate.png"
-                alt="Project 1"
+                alt="TricityMate Project"
                 class="project-img"
               />
               <div class="project-overlay">
@@ -206,18 +313,18 @@
             <h2 class="experience-sub-title project-title">TricityMate</h2>
           </div>
 
-          <!-- Project 2 -->
-          <div class="color-container">
+          <!-- Project 2: JobVikas -->
+          <div class="color-container animate-on-scroll">
             <div class="project-card">
               <img
                 src="./assets/jobvikas.png"
-                alt="Project 2"
+                alt="JobVikas Project"
                 class="project-img"
               />
               <div class="project-overlay">
                 <div class="project-info">
                   <h3>JobVikas</h3>
-                  <p>Job Portal</p>
+                  <p>Job Portal Application</p>
                   <div class="btn-container">
                     <button
                       class="btn btn-color-1 project-btn"
@@ -237,6 +344,38 @@
             </div>
             <h2 class="experience-sub-title project-title">JobVikas</h2>
           </div>
+
+          <!-- Project 3: MediManage -->
+          <div class="color-container animate-on-scroll">
+            <div class="project-card">
+              <img
+                src="./assets/medimanage.png"
+                alt="MediManage Project"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>MediManage</h3>
+                  <p>Healthcare Management System</p>
+                  <div class="btn-container">
+                    <button
+                      class="btn btn-color-1 project-btn"
+                      onclick="location.href='https://medimanage.onrender.com/'"
+                    >
+                      Live Demo
+                    </button>
+                    <button
+                      class="btn btn-color-2 project-btn"
+                      onclick="location.href='https://github.com/aman-gupta-16/MediManage'"
+                    >
+                      Source Code
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="experience-sub-title project-title">MediManage</h2>
+          </div>
         </div>
       </div>
     </section>
@@ -244,7 +383,7 @@
     <!-- Contact Section -->
     <section id="contact">
       <h1 class="title contact-heading">Contact Me</h1>
-      <div class="contact-info-upper-container">
+      <div class="contact-info-upper-container animate-on-scroll">
         <div class="contact-info-container">
           <img
             src="./assets/email.png"
@@ -264,11 +403,18 @@
             class="icon contact-icon"
           />
           <p>
-            <a href="https://linkedin.com/in/aman-gupta-50535521a">LinkedIn</a>
+            <a href="https://linkedin.com/in/aman-gupta-50535521a"
+              >LinkedIn Profile</a
+            >
           </p>
         </div>
       </div>
     </section>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollTopBtn" class="scroll-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -276,7 +422,7 @@
         <div class="nav-links-container">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -284,7 +430,6 @@
       </nav>
       <p>Copyright © 2024 Aman Gupta. All rights reserved.</p>
     </footer>
-
     <script src="script.js"></script>
   </body>
 </html>
