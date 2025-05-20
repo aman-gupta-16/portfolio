@@ -99,49 +99,72 @@
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-      <h1 class="title about-heading">About Me</h1>
-      <div class="section-container">
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container animate-on-scroll">
-              <i class="fas fa-award icon skill-icon"></i>
-              <h3>Experience</h3>
-              <p>6+ months<br />Full Stack Development</p>
-            </div>
-            <div class="details-container animate-on-scroll">
-              <i class="fas fa-graduation-cap icon skill-icon"></i>
-              <h3>Education</h3>
-              <p>
-                B.E. Electronics & Communication<br />Chandigarh College of
-                Engineering & Technology
-              </p>
+  <!-- About Section -->
+<section id="about" class="section about-section">
+  <div class="about-grid container">
+    <div class="about-image">
+      <!-- swapped out profile.jpg for an illustration -->
+      <img src="./assets/about-img.svg" alt="Illustration of coding" />
+    </div>
+    <div class="about-text">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I’m <strong>Aman Gupta</strong>, a Full Stack Developer with a B.E.
+        in Electronics &amp; Communication from Chandigarh College of
+        Engineering &amp; Technology. Over the past six months as a Software
+        Developer Intern at Equartis Technology, I’ve built scalable web
+        apps including a Dietitian Management System and a SuperAdmin
+        Analytics Dashboard.
+      </p>
+      <p>
+        I specialize in <strong>React, Node.js, MongoDB</strong> and thrive
+        in collaborative environments. As a technical coordinator and
+        student leader, I’m passionate about turning ideas into
+        well-crafted, user-centric applications.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Software Developer Intern</h3>
+              <span class="timeline-date"
+                >Equartis Technology | Jan 2024 – Jul 2024</span
+              >
+              <ul>
+                <li>
+                  Built a Dietitian Management Web App for client & plan
+                  tracking.
+                </li>
+                <li>
+                  Developed a SuperAdmin Analytics Dashboard to surface key
+                  metrics.
+                </li>
+                <li>
+                  Designed RESTful APIs & responsive UIs with React and CSS.
+                </li>
+                <li>
+                  Optimized MongoDB queries to boost data retrieval by 25%.
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="text-container animate-on-scroll">
-            <p>
-              I am a versatile Software Developer pursuing a B.E. in Electronics
-              & Communication from Chandigarh College of Engineering &
-              Technology. With over six months of hands-on experience as a
-              Software Developer Intern at Equartis Technology, I have designed
-              and delivered scalable web applications, including a Dietitian
-              Management Web App and a SuperAdmin Analytics Dashboard. Skilled
-              in system architecture, API development, and collaborative
-              problem-solving, I have contributed to 5+ projects using
-              technologies like React, Node.js, and MongoDB. As a technical
-              coordinator and student leader, I thrive in dynamic environments
-              and am passionate about building innovative solutions.
-            </p>
-          </div>
+          <!-- Add more .timeline-item blocks here if you have more roles -->
         </div>
       </div>
     </section>
 
     <!-- Skills Section -->
     <section id="experience">
-      <h1 class="title experience-heading">My Experience</h1>
-
+      <h1 class="title experience-heading">Skills</h1>
       <div class="experience-details-container">
         <div class="skills-container">
           <!-- Frontend Skills -->
@@ -264,7 +287,7 @@
 
               <div class="skill-item">
                 <i class="fab fa-aws skill-icon"></i>
-                <h3>AWS (EC2, S3)</h3>
+                <h3>AWS</h3>
                 <div class="skill-level">
                   <div class="skill-progress intermediate"></div>
                   <span>Intermediate</span>

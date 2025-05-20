@@ -2,63 +2,25 @@
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
-  
+
   menu.classList.toggle("open");
   icon.classList.toggle("open");
 }
 
 // Dark/Light Mode Toggle function
 function toggleTheme() {
-  const body = document.body;
-  const themeIcon = document.getElementById('theme-icon');
-  const themeIconMobile = document.getElementById('theme-icon-mobile');
-  const allIcons = document.querySelectorAll('.icon');
-  
-  // Toggle dark mode class on body
-  body.classList.toggle('dark-mode');
-  
-  // Update icon based on current theme
-  if (body.classList.contains('dark-mode')) {
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
-    themeIcon.style.color = '#FFD700'; // Gold color for sun icon
-    
-    // Also update mobile theme icon
-    if (themeIconMobile) {
-      themeIconMobile.classList.remove('fa-moon');
-      themeIconMobile.classList.add('fa-sun');
-      themeIconMobile.style.color = '#FFD700'; // Gold color for sun icon
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  const iconName = isDark ? 'fa-sun' : 'fa-moon';
+  const iconColor = isDark ? '#FFD700' : '#6a81a9';
+  ['theme-icon', 'theme-icon-mobile'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.className = `fas ${iconName}`;
+      el.style.color = iconColor;
     }
-    
-    // Apply filter to all icons with class "icon" for dark mode
-    allIcons.forEach(icon => {
-      if (!icon.classList.contains('skill-icon')) { // Don't apply to skill icons
-        icon.style.filter = 'brightness(1.5) invert(0.2)';
-      }
-    });
-    
-    localStorage.setItem('theme', 'dark');
-  } else {
-    themeIcon.classList.remove('fa-sun');
-    themeIcon.classList.add('fa-moon');
-    themeIcon.style.color = '#6a81a9'; // Blue-ish color for moon icon
-    
-    // Also update mobile theme icon
-    if (themeIconMobile) {
-      themeIconMobile.classList.remove('fa-sun');
-      themeIconMobile.classList.add('fa-moon');
-      themeIconMobile.style.color = '#6a81a9'; // Blue-ish color for moon icon
-    }
-    
-    // Reset filter for all icons with class "icon" for light mode
-    allIcons.forEach(icon => {
-      if (!icon.classList.contains('skill-icon')) { // Don't apply to skill icons
-        icon.style.filter = 'none';
-      }
-    });
-    
-    localStorage.setItem('theme', 'light');
-  }
+  });
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
 // Check for saved theme preference
@@ -67,37 +29,31 @@ function loadTheme() {
   const themeIcon = document.getElementById('theme-icon');
   const themeIconMobile = document.getElementById('theme-icon-mobile');
   const allIcons = document.querySelectorAll('.icon');
-  
+
   if (savedTheme === 'dark') {
     document.body.classList.add('dark-mode');
     themeIcon.classList.remove('fa-moon');
     themeIcon.classList.add('fa-sun');
-    themeIcon.style.color = '#FFD700'; // Gold color for sun icon
-    
-    // Also update mobile theme icon
+    themeIcon.style.color = '#FFD700';
+
     if (themeIconMobile) {
       themeIconMobile.classList.remove('fa-moon');
       themeIconMobile.classList.add('fa-sun');
-      themeIconMobile.style.color = '#FFD700'; // Gold color for sun icon
+      themeIconMobile.style.color = '#FFD700';
     }
-    
-    // Apply filter to all icons with class "icon" for dark mode
+
     allIcons.forEach(icon => {
-      if (!icon.classList.contains('skill-icon')) { // Don't apply to skill icons
+      if (!icon.classList.contains('skill-icon')) {
         icon.style.filter = 'brightness(1.5) invert(0.2)';
       }
     });
   } else {
-    // Ensure moon icon has correct color on first load
-    themeIcon.style.color = '#6a81a9'; // Blue-ish color for moon icon
-    
+    themeIcon.style.color = '#6a81a9';
     if (themeIconMobile) {
-      themeIconMobile.style.color = '#6a81a9'; // Blue-ish color for moon icon
+      themeIconMobile.style.color = '#6a81a9';
     }
-    
-    // Reset filter for all icons with class "icon" for light mode
     allIcons.forEach(icon => {
-      if (!icon.classList.contains('skill-icon')) { // Don't apply to skill icons
+      if (!icon.classList.contains('skill-icon')) {
         icon.style.filter = 'none';
       }
     });
@@ -107,7 +63,7 @@ function loadTheme() {
 // Scroll to Top Button functionality
 function scrollFunction() {
   const scrollTopBtn = document.getElementById("scrollTopBtn");
-  
+
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     scrollTopBtn.classList.add("active");
   } else {
@@ -122,43 +78,49 @@ function scrollToTop() {
   });
 }
 
-// Add typing effect to the job title
+// Typing effect and blinking cursor
+let typingInterval = null;
+let cursorInterval = null;
+
 function typeEffect() {
   const jobTitle = document.querySelector('.section__text__p2');
-  const text = "Full Stack Developer"; // The text to type
-  jobTitle.textContent = '';
-  
+  const text = "Full Stack Developer";
   let i = 0;
-  const typing = setInterval(() => {
+
+  clearInterval(typingInterval);
+  clearInterval(cursorInterval);
+  jobTitle.innerHTML = '';
+
+  typingInterval = setInterval(() => {
     if (i < text.length) {
       jobTitle.textContent += text.charAt(i);
       i++;
     } else {
-      clearInterval(typing);
-      // After typing completes, add a blinking cursor effect
+      clearInterval(typingInterval);
       setTimeout(() => {
         addBlinkingCursor(jobTitle);
-      }, 1000);
+      }, 300);
     }
   }, 100);
+
+  // Prevent multiple listeners
+  if (!jobTitle.dataset.listenerAttached) {
+    jobTitle.addEventListener('click', () => {
+      typeEffect();
+    });
+    jobTitle.dataset.listenerAttached = 'true';
+  }
 }
 
-// Add blinking cursor effect after typing completes
 function addBlinkingCursor(element) {
   const cursor = document.createElement('span');
   cursor.className = 'cursor';
   cursor.textContent = '|';
   element.appendChild(cursor);
-  
-  setInterval(() => {
+
+  cursorInterval = setInterval(() => {
     cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
   }, 500);
-  
-  // Add event to restart typing effect when clicked
-  element.addEventListener('click', () => {
-    element.textContent = '';
-    typeEffect();
-  });
 }
 
 // Animation for elements when they scroll into view
@@ -170,7 +132,7 @@ function initScrollAnimations() {
       }
     });
   }, { threshold: 0.1 });
-  
+
   const elements = document.querySelectorAll('.animate-on-scroll');
   elements.forEach(el => {
     observer.observe(el);
@@ -191,7 +153,7 @@ function animateSkillBars() {
       }
     });
   }, { threshold: 0.5 });
-  
+
   const skillCards = document.querySelectorAll('.skills-card');
   skillCards.forEach(card => {
     observer.observe(card);
@@ -199,19 +161,16 @@ function animateSkillBars() {
 }
 
 // Initialize all functions on page load
-window.onload = function() {
+window.onload = function () {
   loadTheme();
   typeEffect();
-  
-  // Set up click event for scroll to top button
+
   document.getElementById("scrollTopBtn").addEventListener("click", scrollToTop);
-  
-  // Add event listener for scroll
-  window.onscroll = function() {
+
+  window.onscroll = function () {
     scrollFunction();
   };
-  
-  // Initialize animations
+
   initScrollAnimations();
   animateSkillBars();
 };
